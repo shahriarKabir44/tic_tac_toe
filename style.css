@@ -1,0 +1,19 @@
+*
+{
+  font-family: Tahoma;
+  font-size:2rem
+}
+
+.main
+{
+  text-align: center;
+  width:246px;
+}
+
+.box
+{
+  border: 1px solid #000000;
+  width: 80px;
+  float: left;
+  height: 90px;
+}
