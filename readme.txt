@@ -1,1 +1,0 @@
-The project can be run through the browser by opening the index.html file.

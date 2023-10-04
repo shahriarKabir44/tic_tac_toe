@@ -1,5 +1,5 @@
 let grid = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-let priority = [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
+let priorityGrid = [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
 
 
 //gets the sum of certain combinations of the grid 
@@ -32,7 +32,7 @@ function prioritize() {
     for (let n = 0; n < 3; n++) {
         for (let k = 0; k < 3; k++) {
             if (grid[n][k] != 0) {
-                priority[n][k] = 0;
+                priorityGrid[n][k] = 0;
             }
             else {
                 priority = 0;
@@ -90,7 +90,7 @@ function prioritize() {
                 }
                 colPriority = priority;
                 priority = 0;
-                priority[n][k] = Math.max(diagonalPriority, diagonal2Priority, rowPriority, colPriority);
+                priorityGrid[n][k] = Math.max(diagonalPriority, diagonal2Priority, rowPriority, colPriority);
             }
         }
 
@@ -103,13 +103,13 @@ function prioritize() {
 
 function computerInput() {
     prioritize();
-    let maximumPriorityValue = Math.max(Math.max(...priority[0]), Math.max(...priority[1]), Math.max(...priority[2]));
+    let maximumPriorityValue = Math.max(Math.max(...priorityGrid[0]), Math.max(...priorityGrid[1]), Math.max(...priorityGrid[2]));
     //gets the maximum possible priority
     let maxPriorityCellCount = 0;
     let prioritizedIndices = [] //gets the cells with the highest priority
     for (let n = 0; n < 3; n++) {
         for (let k = 0; k < 3; k++) {
-            if (priority[n][k] == maximumPriorityValue && maximumPriorityValue != 0) {
+            if (priorityGrid[n][k] == maximumPriorityValue && maximumPriorityValue != 0) {
                 maxPriorityCellCount++;
                 prioritizedIndices.push([n, k])
             }
